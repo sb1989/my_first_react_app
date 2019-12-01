@@ -5,6 +5,7 @@ return (
         <div>
             <p onClick={props.click}>Return from jsx! I'm {props.name}, {props.age}year old.</p>
             <p>{props.children}</p>
+            <input type='text' onChange={props.changed} value={props.name}/>
         </div>
     )
 };
