@@ -35,6 +35,20 @@ class App extends Component {
   }
 
   render() {
+
+    let persons = null;
+
+    if(this.state.showPerson){
+      persons = ( 
+      <div>
+        <Person 
+        click={this.switchNameHandler.bind(this, 'Yiyi')} 
+        changed={this.nameChangedHandler}
+        name = {this.state.persons[0].name} age = {this.state.persons[0].age}/>
+        <Person name = {this.state.persons[1].name} age = {this.state.persons[1].age}/>
+        <Person name = {this.state.persons[2].name} age = {this.state.persons[2].age}>My hobby: Swimming</Person>
+      </div> );
+    }
     return (
       //jsx
       <div className="App">
@@ -42,16 +56,7 @@ class App extends Component {
         <p>This is working</p>
         {/*<button onClick={this.switchNameHandler.bind(this, 'Yiyi')}>Switch Name</button>*/}
         <button onClick={this.togglePersonsHandler}>Toggle Person</button>
-       {
-        this.state.showPerson ? <div>
-            <Person 
-            click={this.switchNameHandler.bind(this, 'Yiyi')} 
-            changed={this.nameChangedHandler}
-            name = {this.state.persons[0].name} age = {this.state.persons[0].age}/>
-            <Person name = {this.state.persons[1].name} age = {this.state.persons[1].age}/>
-            <Person name = {this.state.persons[2].name} age = {this.state.persons[2].age}>My hobby: Swimming</Person>
-          </div> : null
-        } 
+        {persons}
       </div>
     );
     //return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Hi I\'m a react App!!!'))
